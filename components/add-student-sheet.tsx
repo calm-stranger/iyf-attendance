@@ -114,7 +114,6 @@ export function AddStudentSheet({ sessionId }: { sessionId: string }) {
                   id="photo"
                   type="file"
                   accept="image/*"
-                  capture="environment"
                   className="hidden"
                   onChange={handlePhotoSelect}
                 />
