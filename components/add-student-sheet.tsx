@@ -100,25 +100,24 @@ export function AddStudentSheet({ sessionId }: { sessionId: string }) {
           <TabsContent value="new" className="mt-4">
             <form ref={formRef} action={handleSubmit} className="space-y-4">
               <div className="flex flex-col items-center gap-2">
-                <label
-                  htmlFor="photo"
-                  className="flex h-24 w-24 cursor-pointer items-center justify-center rounded-full border-2 border-dashed bg-muted overflow-hidden"
-                >
-                  {preview ? (
-                    <img src={preview} alt="preview" className="h-full w-full object-cover" />
-                  ) : (
-                    <Camera className="h-8 w-8 text-muted-foreground" />
-                  )}
-                </label>
-                <input
-                  id="photo"
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handlePhotoSelect}
-                />
-                <span className="text-xs text-muted-foreground">Tap to take photo</span>
-              </div>
+  <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border-2 border-dashed bg-muted">
+    {preview ? (
+      <img src={preview} alt="preview" className="h-full w-full object-cover" />
+    ) : (
+      <Camera className="h-8 w-8 text-muted-foreground" />
+    )}
+  </div>
+  <div className="flex gap-2">
+    <label htmlFor="photo-camera" className="cursor-pointer rounded-md border px-3 py-1.5 text-xs font-medium hover:bg-muted">
+      📷 Take Photo
+    </label>
+    <label htmlFor="photo-gallery" className="cursor-pointer rounded-md border px-3 py-1.5 text-xs font-medium hover:bg-muted">
+      🖼 Gallery
+    </label>
+  </div>
+  <input id="photo-camera" type="file" accept="image/*" capture="environment" className="hidden" onChange={handlePhotoSelect} />
+  <input id="photo-gallery" type="file" accept="image/*" className="hidden" onChange={handlePhotoSelect} />
+</div>
 
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>

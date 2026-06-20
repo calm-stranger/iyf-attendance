@@ -88,7 +88,7 @@ export default async function Home({
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
   {attendance?.map((a: any) => (
-    <StudentCard key={a.id} student={a.students} />
+    <StudentCard key={a.id} student={a.students} sessionId={session.id} />
   ))}
 </div>
 {(!attendance || attendance.length === 0) && (
